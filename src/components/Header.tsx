@@ -46,7 +46,7 @@ export const Header: React.FC<{ onContact: () => void }> = ({ onContact }) => {
     >
       <Container className="flex items-center justify-between gap-4 h-[4.25rem]">
         <a href="#" className="flex items-center gap-3 shrink-0" aria-label={`${SITE.shortName}, bosh sahifa`}>
-          <Emblem number={SITE.number} size={40} />
+          <Emblem size={42} />
           <span className="leading-tight">
             <span className="block font-bold text-[0.95rem] text-ink whitespace-nowrap">{SITE.shortName}</span>
             <span className="block text-xs text-muted">{SITE.region}</span>

@@ -1,26 +1,30 @@
 import React, { useEffect } from 'react';
 import { X } from 'lucide-react';
 
-/** Maktab belgisi: yumaloq kvadrat ichida raqam */
-export const Emblem: React.FC<{ number: string; size?: number; tone?: 'dark' | 'light'; className?: string }> = ({
-  number,
-  size = 40,
-  tone = 'dark',
-  className = '',
-}) => (
-  <span
-    aria-hidden="true"
-    className={`relative shrink-0 grid place-items-center font-bold tracking-tight leading-none ${
-      tone === 'dark' ? 'bg-brand-800 text-white' : 'bg-white text-brand-800'
-    } ${className}`}
-    style={{ width: size, height: size, borderRadius: size * 0.3, fontSize: size * 0.42 }}
+/**
+ * Maktab logotipi: ochiq kitob sahifalarida "1" va "9", tepasida bilim chirog'i.
+ * Fayl ko'rinishlari: public/logo/ (SVG va PNG).
+ */
+export const Emblem: React.FC<{ size?: number; className?: string; title?: string }> = ({ size = 40, className = '', title }) => (
+  <svg
+    viewBox="0 0 120 120"
+    width={size}
+    height={size}
+    className={`shrink-0 ${className}`}
+    role={title ? 'img' : undefined}
+    aria-hidden={title ? undefined : true}
+    aria-label={title}
   >
-    {number}
-    <span
-      className="absolute rounded-full bg-accent-300"
-      style={{ width: size * 0.16, height: size * 0.16, right: size * 0.13, top: size * 0.13 }}
-    />
-  </span>
+    <rect width="120" height="120" rx="34" fill="var(--color-brand-800)" />
+    <circle cx="60" cy="21" r="6.5" fill="var(--color-accent-300)" />
+    <path d="M58 40 C48 33 33 31 19 34 L19 88 C33 85 48 87 58 94 Z" fill="#fff" />
+    <path d="M62 40 C72 33 87 31 101 34 L101 88 C87 85 72 87 62 94 Z" fill="#fff" />
+    <g fill="none" stroke="var(--color-brand-800)" strokeWidth="7.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M33 54 L40 48 L40 78" />
+      <circle cx="79" cy="57" r="8.5" />
+      <path d="M87.5 57 L87.5 70 Q87.5 78 79.5 78" />
+    </g>
+  </svg>
 );
 
 /** Bo'lim sarlavhasi: sarlavha + bitta izoh jumla */

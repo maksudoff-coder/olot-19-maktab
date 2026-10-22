@@ -74,6 +74,19 @@ Kodni o'zgartirsangiz: **Deploy → Manage deployments → ✏️ → Version: N
 
 ---
 
+## Logotip
+
+`public/logo/` papkasida:
+
+| Fayl | Qayerda ishlatiladi |
+|---|---|
+| `olot19-belgi.svg` | Asl vektor belgi: istalgan o'lchamda, bosma uchun |
+| `olot19-belgi-512.png` | Telegram kanal avatari, ijtimoiy tarmoqlar |
+| `olot19-logo.png` | Oq fonda: hujjatlar, e'lonlar |
+| `olot19-logo-oq.png` | To'q fonda |
+
+`public/og-image.png` — sayt havolasi Telegram'da ulashilganda chiqadigan rasm. Domen ulangach, `index.html` dagi `og:image` ni to'liq manzilga o'zgartiring (masalan `https://olot19.uz/og-image.png`).
+
 ## Tuzilishi
 
 ```
