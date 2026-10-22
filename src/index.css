@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/*
+ * Rang tizimi — Buxoro koshinlari va peshtoqlaridan olingan:
+ *  lojuvard (lapis) — asosiy, firuza — urg'u, paxsa (sariq g'isht) — fon bezagi,
+ *  oltin — faqat yutuqlar uchun.
+ */
+@theme {
+  --color-lapis-950: #0d1f3c;
+  --color-lapis-900: #132a52;
+  --color-lapis-800: #1b3b6f;
+  --color-lapis-700: #24508f;
+  --color-lapis-100: #e3eaf5;
+  --color-lapis-50: #f1f5fb;
+
+  --color-firuza-600: #0f7c7a;
+  --color-firuza-500: #149d9a;
+  --color-firuza-300: #6fd0c9;
+  --color-firuza-100: #d8f2ef;
+
+  --color-paxsa-300: #e2cfa8;
+  --color-paxsa-100: #f5eee0;
+
+  --color-oltin-500: #d99a1e;
+  --color-kumush-400: #a3adbb;
+  --color-bronza-500: #b8733a;
+
+  --color-ink: #16213a;
+  --color-muted: #5b6577;
+  --color-line: #dde3ec;
+  --color-surface: #f4f7fa;
+
+  --font-display: "Unbounded", system-ui, sans-serif;
+  --font-sans: "Onest Variable", "Onest", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: #ffffff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-firuza-500);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+/* Sakkiz qirrali yulduz (xotam) shakli — avatar va belgilar uchun */
+.octagon {
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+}
+
+/* Peshtoq (ravoq) shakli — bosh suratning ramkasi */
+.arch {
+  border-radius: 50% 50% 0 0 / 34% 34% 0 0;
+}
+
+/* Bosh qismning bir martalik ochilish animatsiyasi */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes archIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+.rise { animation: rise 0.7s cubic-bezier(.2,.7,.2,1) both; }
+.arch-in { animation: archIn 0.9s cubic-bezier(.2,.7,.2,1) 0.15s both; }
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+.modal-in { animation: modalIn 0.22s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise, .arch-in, .modal-in { animation: none; }
+}
+
+@media print {
+  header, footer, .no-print { display: none !important; }
+  .print-timetable main > section:not(#dars-jadvali),
+  .print-timetable main > div { display: none !important; }
+  #dars-jadvali { background: #fff !important; border: 0 !important; }
+}
