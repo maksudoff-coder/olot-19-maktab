@@ -1,59 +1,27 @@
-import React, { useEffect, useId } from 'react';
+import React, { useEffect } from 'react';
 import { X } from 'lucide-react';
 
-/** Buxoro koshinlaridagi sakkiz qirrali yulduz (xotam) naqshi. Rang — currentColor. */
-export const TilePattern: React.FC<{ className?: string; size?: number; strokeWidth?: number }> = ({
-  className = '',
-  size = 56,
-  strokeWidth = 1.2,
-}) => {
-  const id = useId().replace(/:/g, '');
-  const c = size / 2;
-  const a = size * 0.25; // kvadrat yarim tomoni
-  const d = a * Math.SQRT2; // romb radiusi
-  return (
-    <svg className={className} aria-hidden="true" width="100%" height="100%">
-      <defs>
-        <pattern id={`tile-${id}`} width={size} height={size} patternUnits="userSpaceOnUse">
-          <g fill="none" stroke="currentColor" strokeWidth={strokeWidth}>
-            <rect x={c - a} y={c - a} width={a * 2} height={a * 2} />
-            <polygon points={`${c},${c - d} ${c + d},${c} ${c},${c + d} ${c - d},${c}`} />
-            <path d={`M0 0 L${c - d * 0.71} ${c - d * 0.71} M${size} 0 L${c + d * 0.71} ${c - d * 0.71} M0 ${size} L${c - d * 0.71} ${c + d * 0.71} M${size} ${size} L${c + d * 0.71} ${c + d * 0.71}`} />
-          </g>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill={`url(#tile-${id})`} />
-    </svg>
-  );
-};
-
-/** Maktab belgisi: xotam yulduzi ichida raqam */
-export const Emblem: React.FC<{ number: string; className?: string; tone?: 'dark' | 'light' }> = ({
+/** Maktab belgisi: yumaloq kvadrat ichida raqam */
+export const Emblem: React.FC<{ number: string; size?: number; tone?: 'dark' | 'light'; className?: string }> = ({
   number,
-  className = 'w-11 h-11',
+  size = 40,
   tone = 'dark',
-}) => {
-  const fill = tone === 'dark' ? 'var(--color-lapis-800)' : '#ffffff';
-  const text = tone === 'dark' ? '#ffffff' : 'var(--color-lapis-800)';
-  return (
-    <svg viewBox="0 0 100 100" className={className} aria-hidden="true">
-      <rect x="18" y="18" width="64" height="64" fill={fill} />
-      <rect x="18" y="18" width="64" height="64" fill={fill} transform="rotate(45 50 50)" />
-      <rect x="25" y="25" width="50" height="50" fill="none" stroke="var(--color-firuza-500)" strokeWidth="2.5" />
-      <rect x="25" y="25" width="50" height="50" fill="none" stroke="var(--color-firuza-500)" strokeWidth="2.5" transform="rotate(45 50 50)" />
-      <text
-        x="50"
-        y="51"
-        textAnchor="middle"
-        dominantBaseline="central"
-        fill={text}
-        style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: number.length > 2 ? 24 : 30 }}
-      >
-        {number}
-      </text>
-    </svg>
-  );
-};
+  className = '',
+}) => (
+  <span
+    aria-hidden="true"
+    className={`relative shrink-0 grid place-items-center font-bold tracking-tight leading-none ${
+      tone === 'dark' ? 'bg-brand-800 text-white' : 'bg-white text-brand-800'
+    } ${className}`}
+    style={{ width: size, height: size, borderRadius: size * 0.3, fontSize: size * 0.42 }}
+  >
+    {number}
+    <span
+      className="absolute rounded-full bg-accent-300"
+      style={{ width: size * 0.16, height: size * 0.16, right: size * 0.13, top: size * 0.13 }}
+    />
+  </span>
+);
 
 /** Bo'lim sarlavhasi: sarlavha + bitta izoh jumla */
 export const SectionHead: React.FC<{
@@ -64,8 +32,8 @@ export const SectionHead: React.FC<{
 }> = ({ title, intro, action, dark }) => (
   <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-10">
     <div className="max-w-2xl">
-      <h2 className={`text-2xl sm:text-[2rem] leading-tight font-semibold ${dark ? 'text-white' : 'text-ink'}`}>{title}</h2>
-      {intro && <p className={`mt-3 text-[1.0625rem] ${dark ? 'text-lapis-100/80' : 'text-muted'}`}>{intro}</p>}
+      <h2 className={`text-2xl sm:text-[2rem] leading-tight ${dark ? 'text-white' : 'text-ink'}`}>{title}</h2>
+      {intro && <p className={`mt-3 text-[1.0625rem] ${dark ? 'text-brand-100/80' : 'text-muted'}`}>{intro}</p>}
     </div>
     {action}
   </div>
@@ -123,7 +91,7 @@ export const Modal: React.FC<{
   if (!open) return null;
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-lapis-950/60 backdrop-blur-[2px] sm:p-4"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-brand-950/60 backdrop-blur-[2px] sm:p-4"
       onClick={onClose}
       role="presentation"
     >

@@ -46,16 +46,16 @@ export const Header: React.FC<{ onContact: () => void }> = ({ onContact }) => {
     >
       <Container className="flex items-center justify-between gap-4 h-[4.25rem]">
         <a href="#" className="flex items-center gap-3 shrink-0" aria-label={`${SITE.shortName}, bosh sahifa`}>
-          <Emblem number={SITE.number} className="w-10 h-10" />
+          <Emblem number={SITE.number} size={40} />
           <span className="leading-tight">
-            <span className="block font-display font-semibold text-[0.9rem] text-lapis-900 whitespace-nowrap">{SITE.shortName}</span>
+            <span className="block font-bold text-[0.95rem] text-ink whitespace-nowrap">{SITE.shortName}</span>
             <span className="block text-xs text-muted">{SITE.region}</span>
           </span>
         </a>
 
         <nav className="hidden xl:flex items-center text-[0.9375rem]" aria-label="Asosiy menyu">
           {NAV.map((n) => (
-            <a key={n.href} href={n.href} className="px-2.5 py-2 rounded-lg whitespace-nowrap text-ink/80 hover:text-lapis-800 hover:bg-lapis-50">
+            <a key={n.href} href={n.href} className="px-2.5 py-2 rounded-lg whitespace-nowrap text-ink/80 hover:text-brand-800 hover:bg-brand-50">
               {n.label}
             </a>
           ))}
@@ -65,13 +65,13 @@ export const Header: React.FC<{ onContact: () => void }> = ({ onContact }) => {
           <button
             type="button"
             onClick={onContact}
-            className="hidden sm:inline-flex whitespace-nowrap px-4 py-2.5 rounded-lg bg-lapis-800 hover:bg-lapis-700 text-white text-sm font-medium"
+            className="hidden sm:inline-flex whitespace-nowrap px-4 py-2.5 rounded-lg bg-brand-800 hover:bg-brand-700 text-white text-sm font-medium"
           >
             Murojaat yuborish
           </button>
           <button
             type="button"
-            className="xl:hidden p-2.5 -mr-2 rounded-lg text-lapis-900 hover:bg-lapis-50"
+            className="xl:hidden p-2.5 -mr-2 rounded-lg text-brand-900 hover:bg-brand-50"
             onClick={() => setOpen(true)}
             aria-label="Menyuni ochish"
             aria-expanded={open}
@@ -82,13 +82,13 @@ export const Header: React.FC<{ onContact: () => void }> = ({ onContact }) => {
       </Container>
 
       {open && createPortal(
-        <div className="xl:hidden fixed inset-0 z-50 bg-lapis-950/50" onClick={() => setOpen(false)}>
+        <div className="xl:hidden fixed inset-0 z-50 bg-brand-950/50" onClick={() => setOpen(false)}>
           <div
             className="modal-in absolute right-0 top-0 h-full w-[min(20rem,86vw)] bg-white shadow-2xl flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between px-5 h-[4.25rem] border-b border-line">
-              <span className="font-display font-semibold text-lapis-900">Menyu</span>
+              <span className="font-bold text-ink">Menyu</span>
               <button type="button" className="p-2 -mr-2 rounded-lg hover:bg-surface" onClick={() => setOpen(false)} aria-label="Menyuni yopish">
                 <X size={22} />
               </button>
@@ -99,7 +99,7 @@ export const Header: React.FC<{ onContact: () => void }> = ({ onContact }) => {
                   key={n.href}
                   href={n.href}
                   onClick={() => setOpen(false)}
-                  className="block px-5 py-3 text-[1.0625rem] text-ink hover:bg-lapis-50"
+                  className="block px-5 py-3 text-[1.0625rem] text-ink hover:bg-brand-50"
                 >
                   {n.label}
                 </a>
@@ -112,7 +112,7 @@ export const Header: React.FC<{ onContact: () => void }> = ({ onContact }) => {
                   setOpen(false);
                   onContact();
                 }}
-                className="w-full py-3 rounded-lg bg-lapis-800 text-white font-medium"
+                className="w-full py-3 rounded-lg bg-brand-800 text-white font-medium"
               >
                 Murojaat yuborish
               </button>

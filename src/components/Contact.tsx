@@ -1,7 +1,7 @@
 import React from 'react';
 import { Clock, Mail, MapPin, Phone, Send, ExternalLink } from 'lucide-react';
 import { SITE } from '../config';
-import { Container, SectionHead, Emblem, show, TilePattern } from './ui';
+import { Container, SectionHead, Emblem, show } from './ui';
 
 const tel = (p: string) => `tel:${p.replace(/[^\d+]/g, '')}`;
 
@@ -26,21 +26,21 @@ export const Contact: React.FC<{ onContact: () => void }> = ({ onContact }) => (
           </Row>
           <Row icon={Phone} label="Telefon">
             {SITE.phone ? (
-              <a href={tel(SITE.phone)} className="text-lg font-semibold text-lapis-800 hover:underline tabular-nums">
+              <a href={tel(SITE.phone)} className="text-lg font-semibold text-brand-800 hover:underline tabular-nums">
                 {SITE.phone}
               </a>
             ) : (
               show(null)
             )}
             {SITE.phoneSecondary && (
-              <a href={tel(SITE.phoneSecondary)} className="block text-lapis-800 hover:underline tabular-nums">
+              <a href={tel(SITE.phoneSecondary)} className="block text-brand-800 hover:underline tabular-nums">
                 {SITE.phoneSecondary}
               </a>
             )}
           </Row>
           <Row icon={Mail} label="Elektron pochta">
             {SITE.email ? (
-              <a href={`mailto:${SITE.email}`} className="text-lapis-800 hover:underline break-all">
+              <a href={`mailto:${SITE.email}`} className="text-brand-800 hover:underline break-all">
                 {SITE.email}
               </a>
             ) : (
@@ -49,7 +49,7 @@ export const Contact: React.FC<{ onContact: () => void }> = ({ onContact }) => (
           </Row>
           <Row icon={Send} label="Telegram">
             {SITE.telegram ? (
-              <a href={`https://t.me/${SITE.telegram}`} target="_blank" rel="noreferrer" className="text-lapis-800 hover:underline">
+              <a href={`https://t.me/${SITE.telegram}`} target="_blank" rel="noreferrer" className="text-brand-800 hover:underline">
                 @{SITE.telegram}
               </a>
             ) : (
@@ -63,7 +63,7 @@ export const Contact: React.FC<{ onContact: () => void }> = ({ onContact }) => (
           <button
             type="button"
             onClick={onContact}
-            className="w-full sm:w-auto px-5 py-3 rounded-lg bg-lapis-800 hover:bg-lapis-700 text-white font-medium"
+            className="w-full sm:w-auto px-5 py-3 rounded-lg bg-brand-800 hover:bg-brand-700 text-white font-medium"
           >
             Murojaat yuborish
           </button>
@@ -87,7 +87,7 @@ export const Contact: React.FC<{ onContact: () => void }> = ({ onContact }) => (
               href={mapLink()}
               target="_blank"
               rel="noreferrer"
-              className="ml-auto inline-flex items-center gap-1.5 text-sm font-medium bg-white px-3 py-1.5 rounded-lg shadow hover:bg-lapis-50"
+              className="ml-auto inline-flex items-center gap-1.5 text-sm font-medium bg-white px-3 py-1.5 rounded-lg shadow hover:bg-brand-50"
             >
               Xaritada ochish <ExternalLink size={14} />
             </a>
@@ -100,7 +100,7 @@ export const Contact: React.FC<{ onContact: () => void }> = ({ onContact }) => (
 
 const Row: React.FC<{ icon: React.ElementType; label: string; children: React.ReactNode }> = ({ icon: Icon, label, children }) => (
   <div className="flex gap-4">
-    <span className="octagon w-10 h-10 shrink-0 grid place-items-center bg-lapis-50 text-lapis-800">
+    <span className="rounded-xl w-10 h-10 shrink-0 grid place-items-center bg-brand-50 text-brand-800">
       <Icon size={18} />
     </span>
     <div>
@@ -117,15 +117,12 @@ const LINKS = [
 ];
 
 export const Footer: React.FC = () => (
-  <footer className="relative overflow-hidden bg-lapis-950 text-lapis-100/80">
-    <div className="h-4 bg-paxsa-300 text-lapis-800/40">
-      <TilePattern size={16} strokeWidth={1} />
-    </div>
+  <footer className="relative overflow-hidden bg-brand-950 text-brand-100/80">
     <Container className="py-12 grid md:grid-cols-[1.4fr_1fr_1fr] gap-10">
       <div className="flex gap-4">
-        <Emblem number={SITE.number} tone="light" className="w-12 h-12 shrink-0" />
+        <Emblem number={SITE.number} tone="light" size={48} />
         <div>
-          <div className="font-display font-semibold text-white">{SITE.shortName}</div>
+          <div className="font-bold text-white">{SITE.shortName}</div>
           <p className="mt-2 text-sm max-w-xs">{SITE.fullName}</p>
         </div>
       </div>

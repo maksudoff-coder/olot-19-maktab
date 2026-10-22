@@ -30,7 +30,7 @@ export const Timetable: React.FC = () => {
             <button
               type="button"
               onClick={print}
-              className="no-print inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-line bg-white hover:bg-lapis-50 text-sm font-medium"
+              className="no-print inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-line bg-white hover:bg-brand-50 text-sm font-medium"
             >
               <Printer size={16} /> Chop etish
             </button>
@@ -49,7 +49,7 @@ export const Timetable: React.FC = () => {
                     onClick={() => setCls(c)}
                     aria-pressed={cls === c}
                     className={`min-w-14 px-3 py-2 rounded-lg text-sm font-semibold font-display ${
-                      cls === c ? 'bg-lapis-800 text-white' : 'bg-lapis-50 text-lapis-800 hover:bg-lapis-100'
+                      cls === c ? 'bg-brand-800 text-white' : 'bg-brand-50 text-brand-800 hover:bg-brand-100'
                     }`}
                   >
                     {c}
@@ -65,7 +65,7 @@ export const Timetable: React.FC = () => {
                     aria-selected={day === d}
                     onClick={() => setDay(d)}
                     className={`shrink-0 px-3.5 py-2 rounded-lg text-sm ${
-                      day === d ? 'bg-firuza-500 text-white font-medium' : 'text-ink/75 hover:bg-surface'
+                      day === d ? 'bg-brand-800 text-white font-medium' : 'text-ink/75 hover:bg-surface'
                     }`}
                   >
                     {d}
@@ -80,7 +80,7 @@ export const Timetable: React.FC = () => {
                   const bell = BELLS[i];
                   return (
                     <li key={i} className="grid grid-cols-[2.5rem_1fr] sm:grid-cols-[2.5rem_1fr_auto] gap-x-4 gap-y-1 px-4 sm:px-5 py-4 border-b border-line last:border-0">
-                      <span className="row-span-2 sm:row-span-1 font-display font-semibold text-lapis-800 text-lg tabular-nums pt-0.5">{i + 1}</span>
+                      <span className="row-span-2 sm:row-span-1 font-display font-semibold text-brand-800 text-lg tabular-nums pt-0.5">{i + 1}</span>
                       <div>
                         <div className="font-semibold">{l.subject}</div>
                         <div className="text-sm text-muted mt-0.5">
@@ -113,7 +113,7 @@ export const Timetable: React.FC = () => {
               <tbody>
                 {BELLS.map((b) => (
                   <tr key={b.period} className="border-b border-line last:border-0">
-                    <td className="py-2.5 pl-5 pr-2 font-display font-semibold text-lapis-800">{b.period}</td>
+                    <td className="py-2.5 pl-5 pr-2 font-display font-semibold text-brand-800">{b.period}</td>
                     <td className="py-2.5 px-2">{b.shift1}</td>
                     <td className="py-2.5 pl-2 pr-5">{b.shift2}</td>
                   </tr>

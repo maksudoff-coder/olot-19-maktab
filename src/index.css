@@ -1,36 +1,36 @@
 @import "tailwindcss";
 
 /*
- * Rang tizimi — Buxoro koshinlari va peshtoqlaridan olingan:
- *  lojuvard (lapis) — asosiy, firuza — urg'u, paxsa (sariq g'isht) — fon bezagi,
- *  oltin — faqat yutuqlar uchun.
+ * Rang tizimi — zamonaviy, yorug':
+ *  brand (kobalt ko'k) — asosiy, accent (yashil) — ikonkalar va ijobiy holatlar,
+ *  sun (iliq sariq) — e'tibor talab qiladigan bloklar foni, oltin/kumush/bronza — faqat medallar.
  */
 @theme {
-  --color-lapis-950: #0d1f3c;
-  --color-lapis-900: #132a52;
-  --color-lapis-800: #1b3b6f;
-  --color-lapis-700: #24508f;
-  --color-lapis-100: #e3eaf5;
-  --color-lapis-50: #f1f5fb;
+  --color-brand-950: #0a1230;
+  --color-brand-900: #13246b;
+  --color-brand-800: #1f3fd1;
+  --color-brand-700: #2e55f0;
+  --color-brand-100: #e0e7ff;
+  --color-brand-50: #f0f3ff;
 
-  --color-firuza-600: #0f7c7a;
-  --color-firuza-500: #149d9a;
-  --color-firuza-300: #6fd0c9;
-  --color-firuza-100: #d8f2ef;
+  --color-accent-600: #0b7a55;
+  --color-accent-500: #10a26f;
+  --color-accent-300: #7fe0bd;
+  --color-accent-100: #dcf7ec;
 
-  --color-paxsa-300: #e2cfa8;
-  --color-paxsa-100: #f5eee0;
+  --color-sun-300: #ffe1a1;
+  --color-sun-100: #fff6de;
 
-  --color-oltin-500: #d99a1e;
-  --color-kumush-400: #a3adbb;
-  --color-bronza-500: #b8733a;
+  --color-oltin-500: #e0a31f;
+  --color-kumush-400: #a8b2c1;
+  --color-bronza-500: #c07a3e;
 
-  --color-ink: #16213a;
-  --color-muted: #5b6577;
-  --color-line: #dde3ec;
-  --color-surface: #f4f7fa;
+  --color-ink: #121a33;
+  --color-muted: #5a6478;
+  --color-line: #e3e7ef;
+  --color-surface: #f5f7fb;
 
-  --font-display: "Unbounded", system-ui, sans-serif;
+  --font-display: "Onest Variable", "Onest", system-ui, sans-serif;
   --font-sans: "Onest Variable", "Onest", system-ui, -apple-system, sans-serif;
 }
 
@@ -49,24 +49,15 @@
   }
   h1, h2, h3 {
     font-family: var(--font-display);
-    letter-spacing: -0.01em;
+    font-weight: 700;
+    letter-spacing: -0.025em;
     text-wrap: balance;
   }
   :focus-visible {
-    outline: 3px solid var(--color-firuza-500);
+    outline: 3px solid var(--color-brand-700);
     outline-offset: 2px;
     border-radius: 6px;
   }
-}
-
-/* Sakkiz qirrali yulduz (xotam) shakli — avatar va belgilar uchun */
-.octagon {
-  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
-}
-
-/* Peshtoq (ravoq) shakli — bosh suratning ramkasi */
-.arch {
-  border-radius: 50% 50% 0 0 / 34% 34% 0 0;
 }
 
 /* Bosh qismning bir martalik ochilish animatsiyasi */
@@ -74,12 +65,7 @@
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: none; }
 }
-@keyframes archIn {
-  from { opacity: 0; transform: scale(0.96); }
-  to { opacity: 1; transform: none; }
-}
 .rise { animation: rise 0.7s cubic-bezier(.2,.7,.2,1) both; }
-.arch-in { animation: archIn 0.9s cubic-bezier(.2,.7,.2,1) 0.15s both; }
 
 @keyframes modalIn {
   from { opacity: 0; transform: translateY(10px) scale(0.98); }
@@ -87,14 +73,20 @@
 }
 .modal-in { animation: modalIn 0.22s ease-out both; }
 
+@keyframes pulseDot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 162, 111, .45); }
+  50% { box-shadow: 0 0 0 6px rgba(16, 162, 111, 0); }
+}
+.live-dot { animation: pulseDot 2s ease-in-out infinite; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .rise, .arch-in, .modal-in { animation: none; }
+  .rise, .modal-in, .live-dot { animation: none; }
 }
 
 @media print {
   header, footer, .no-print { display: none !important; }
-  .print-timetable main > section:not(#dars-jadvali),
+  .print-timetable main > section:not(#dars-jadvali) { display: none !important; }
   .print-timetable main > div { display: none !important; }
   #dars-jadvali { background: #fff !important; border: 0 !important; }
 }

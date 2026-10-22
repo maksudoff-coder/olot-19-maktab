@@ -32,7 +32,7 @@ export const About: React.FC = () => {
               className={`p-6 ${i % 2 === 1 ? 'border-l border-line' : ''} ${i >= 2 ? 'border-t border-line' : ''}`}
             >
               <dt className="text-sm text-muted">{f.label}</dt>
-              <dd className="mt-2 font-display text-3xl font-semibold text-lapis-800 tabular-nums">
+              <dd className="mt-2 font-display text-3xl font-semibold text-brand-800 tabular-nums">
                 {f.value !== null ? (
                   <>
                     {f.value}
@@ -51,9 +51,9 @@ export const About: React.FC = () => {
 };
 
 export const Admission: React.FC = () => (
-  <section id="qabul" className="bg-paxsa-100 border-y border-paxsa-300/70">
+  <section id="qabul" className="bg-sun-100 border-y border-sun-300/70">
     <Container className="py-12 grid md:grid-cols-[auto_1fr_auto] gap-6 md:gap-10 items-center">
-      <span className="octagon w-16 h-16 grid place-items-center bg-lapis-800 text-paxsa-100">
+      <span className="rounded-xl w-16 h-16 grid place-items-center bg-brand-800 text-sun-100">
         <School size={28} />
       </span>
       <div>
@@ -68,7 +68,7 @@ export const Admission: React.FC = () => (
           href={SITE.firstGrade.portalUrl}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-lapis-800 hover:bg-lapis-700 text-white font-medium"
+          className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-brand-800 hover:bg-brand-700 text-white font-medium"
         >
           my.gov.uz orqali ariza <ExternalLink size={16} />
         </a>
@@ -76,7 +76,7 @@ export const Admission: React.FC = () => (
           href={SITE.firstGrade.altPortalUrl}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg border border-lapis-800/30 hover:bg-white text-lapis-900 font-medium"
+          className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg border border-brand-800/30 hover:bg-white text-brand-900 font-medium"
         >
           my.maktab.uz <ExternalLink size={16} />
         </a>
@@ -99,14 +99,14 @@ export const Leadership: React.FC<{ onMessage: (to: string) => void }> = ({ onMe
             className="grid grid-cols-[auto_1fr] md:grid-cols-[auto_1.3fr_1fr_auto] gap-x-5 gap-y-3 items-center py-5 border-b border-line"
           >
             <span
-              className={`octagon w-14 h-14 grid place-items-center font-display font-semibold ${
-                i === 0 ? 'bg-lapis-800 text-white' : 'bg-lapis-50 text-lapis-800'
+              className={`rounded-xl w-14 h-14 grid place-items-center font-display font-semibold ${
+                i === 0 ? 'bg-brand-800 text-white' : 'bg-brand-50 text-brand-800'
               }`}
             >
               {l.photo ? <img src={l.photo} alt="" className="w-full h-full object-cover" /> : l.name ? initials(l.name, l.role) : <UserRound size={24} />}
             </span>
             <div>
-              <div className="text-sm text-firuza-600 font-medium">{l.role}</div>
+              <div className="text-sm text-accent-600 font-medium">{l.role}</div>
               <div className="text-lg font-semibold mt-0.5">{show(l.name, false, 'F.I.Sh. kiritilmagan')}</div>
             </div>
             <div className="col-start-2 md:col-start-auto text-[0.9375rem] space-y-1">
@@ -120,7 +120,7 @@ export const Leadership: React.FC<{ onMessage: (to: string) => void }> = ({ onMe
                   {show(l.room)}
                 </span>
                 {l.phone && (
-                  <a href={`tel:${l.phone.replace(/[^\d+]/g, '')}`} className="inline-flex items-center gap-1 text-lapis-800 hover:underline">
+                  <a href={`tel:${l.phone.replace(/[^\d+]/g, '')}`} className="inline-flex items-center gap-1 text-brand-800 hover:underline">
                     <Phone size={14} /> {l.phone}
                   </a>
                 )}
@@ -129,7 +129,7 @@ export const Leadership: React.FC<{ onMessage: (to: string) => void }> = ({ onMe
             <button
               type="button"
               onClick={() => onMessage(l.name ? `${l.role}: ${l.name}` : l.role)}
-              className="col-start-2 md:col-start-auto justify-self-start md:justify-self-end px-4 py-2 rounded-lg text-sm font-medium text-lapis-800 bg-lapis-50 hover:bg-lapis-100"
+              className="col-start-2 md:col-start-auto justify-self-start md:justify-self-end px-4 py-2 rounded-lg text-sm font-medium text-brand-800 bg-brand-50 hover:bg-brand-100"
             >
               Yozish
             </button>

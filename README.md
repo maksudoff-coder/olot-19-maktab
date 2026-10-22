@@ -1,6 +1,8 @@
 # Olot tumani 19-sonli maktab — sayt
 
-React + Vite + Tailwind. Shriftlar (Unbounded, Onest) sayt ichida joylashgan, Google'ga bog'liq emas.
+React + Vite + Tailwind. Shrift (Onest) sayt ichida joylashgan, Google'ga bog'liq emas.
+
+Bosh sahifadagi "Bugun maktabda" kartasi qo'ng'iroqlar jadvalidan (`BELLS`) hozirgi dars yoki tanaffusni o'zi hisoblaydi.
 
 ```bash
 npm install
@@ -80,13 +82,13 @@ src/
   data/school.ts       ← maktab ma'lumotlari
   components/
     Header.tsx         menyu (telefonda yon panel)
-    Hero.tsx           bosh qism + tezkor havolalar
+    Hero.tsx           bosh qism, "Bugun maktabda" kartasi, tezkor havolalar
     About.tsx          maktab haqida, 1-sinfga qabul, ma'muriyat
     Timetable.tsx      dars jadvali + qo'ng'iroqlar (chop etish mumkin)
     People.tsx         o'qituvchilar, to'garaklar, yutuqlar
     Content.tsx        yangiliklar, galereya, darsliklar, oshxona
     Contact.tsx        bog'lanish, xarita, footer
     ContactModal.tsx   murojaat formasi
-    ui.tsx             umumiy qismlar (naqsh, belgi, modal)
+    ui.tsx             umumiy qismlar (belgi, sarlavha, modal)
 apps-script/Code.gs    Google Apps Script — murojaatlarni qabul qiladi
 ```

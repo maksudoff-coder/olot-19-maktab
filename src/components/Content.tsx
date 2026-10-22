@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Download, FileText, ImageIcon, Send, UtensilsCrossed } from 'lucide-react';
 import { SITE } from '../config';
 import { BOOKS, DAYS, GALLERY, MENU, NEWS, NewsItem } from '../data/school';
-import { Container, SectionHead, Modal, TilePattern } from './ui';
+import { Container, SectionHead, Modal } from './ui';
 
 export const Gallery: React.FC = () => {
   const [open, setOpen] = useState<number | null>(null);
@@ -21,7 +21,7 @@ export const Gallery: React.FC = () => {
               type="button"
               disabled={!p.src}
               onClick={() => setOpen(i)}
-              className={`relative overflow-hidden rounded-xl bg-lapis-50 text-left ${
+              className={`relative overflow-hidden rounded-xl bg-brand-50 text-left ${
                 i === 0 ? 'col-span-2 row-span-2' : ''
               } ${p.src ? 'cursor-zoom-in' : 'cursor-default'}`}
             >
@@ -34,8 +34,7 @@ export const Gallery: React.FC = () => {
                 </>
               ) : (
                 <>
-                  <TilePattern className="absolute inset-0 text-lapis-800/10" size={32} />
-                  <span className="absolute inset-0 grid place-items-center text-sm text-lapis-800/70">
+                  <span className="absolute inset-0 grid place-items-center text-sm text-brand-800/70">
                     <span className="flex flex-col items-center gap-1">
                       <ImageIcon size={22} />
                       {i === 0 ? "Haqiqiy surat qo'yiladi" : ''}
@@ -73,7 +72,7 @@ export const Library: React.FC = () => {
               onClick={() => setGrade(g)}
               aria-pressed={grade === g}
               className={`shrink-0 px-3.5 py-2 rounded-full text-sm ${
-                grade === g ? 'bg-lapis-800 text-white' : 'bg-white border border-line text-ink/80 hover:bg-lapis-50'
+                grade === g ? 'bg-brand-800 text-white' : 'bg-white border border-line text-ink/80 hover:bg-brand-50'
               }`}
             >
               {g === 'all' ? 'Hamma sinflar' : `${g}-sinf`}
@@ -83,7 +82,7 @@ export const Library: React.FC = () => {
         <ul className="bg-white rounded-2xl border border-line divide-y divide-line">
           {list.map((b) => (
             <li key={`${b.title}-${b.grade}`} className="flex items-center gap-4 px-4 sm:px-5 py-4">
-              <FileText size={22} className="shrink-0 text-firuza-600" />
+              <FileText size={22} className="shrink-0 text-accent-600" />
               <div className="flex-1 min-w-0">
                 <div className="font-semibold">{b.title}</div>
                 <div className="text-sm text-muted">{b.grade}-sinf, {b.subject}</div>
@@ -94,7 +93,7 @@ export const Library: React.FC = () => {
                   target="_blank"
                   rel="noreferrer"
                   download
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium bg-lapis-50 text-lapis-800 hover:bg-lapis-100"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium bg-brand-50 text-brand-800 hover:bg-brand-100"
                 >
                   <Download size={16} /> <span className="hidden sm:inline">Yuklab olish</span>
                 </a>
@@ -110,8 +109,8 @@ export const Library: React.FC = () => {
 };
 
 const CAT_STYLE: Record<NewsItem['category'], string> = {
-  "E'lon": 'bg-lapis-50 text-lapis-800',
-  Tadbir: 'bg-firuza-100 text-firuza-600',
+  "E'lon": 'bg-brand-50 text-brand-800',
+  Tadbir: 'bg-accent-100 text-accent-600',
   Yutuq: 'bg-[#fbefd2] text-[#7a5200]',
 };
 
@@ -130,7 +129,7 @@ export const News: React.FC = () => {
                 href={`https://t.me/${SITE.telegram}`}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium text-lapis-800 hover:underline"
+                className="inline-flex items-center gap-2 text-sm font-medium text-brand-800 hover:underline"
               >
                 <Send size={16} /> Telegram kanalimiz
               </a>
@@ -143,18 +142,18 @@ export const News: React.FC = () => {
           <div className="grid lg:grid-cols-[1.3fr_1fr] gap-8">
             <article className="group">
               <button type="button" onClick={() => setOpen(first)} className="text-left w-full">
-                <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-lapis-800">
+                <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-brand-800">
                   {first.photo ? (
                     <img src={first.photo} alt="" className="absolute inset-0 w-full h-full object-cover" />
                   ) : (
-                    <TilePattern className="absolute inset-0 text-firuza-300/25" size={48} />
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-100 via-brand-50 to-accent-100" />
                   )}
                 </div>
                 <div className="mt-4 flex items-center gap-3 text-sm">
                   <span className={`px-2 py-0.5 rounded ${CAT_STYLE[first.category]}`}>{first.category}</span>
                   <span className="text-muted">{first.date}</span>
                 </div>
-                <h3 className="mt-2 text-xl sm:text-2xl font-semibold group-hover:text-lapis-700">{first.title}</h3>
+                <h3 className="mt-2 text-xl sm:text-2xl font-semibold group-hover:text-brand-700">{first.title}</h3>
                 <p className="mt-2 text-ink/75">{first.summary}</p>
               </button>
             </article>
@@ -166,7 +165,7 @@ export const News: React.FC = () => {
                       <span className={`px-2 py-0.5 rounded ${CAT_STYLE[n.category]}`}>{n.category}</span>
                       <span className="text-muted">{n.date}</span>
                     </div>
-                    <h3 className="mt-2 text-lg font-semibold leading-snug group-hover:text-lapis-700">{n.title}</h3>
+                    <h3 className="mt-2 text-lg font-semibold leading-snug group-hover:text-brand-700">{n.title}</h3>
                     <p className="mt-1 text-[0.9375rem] text-ink/70 line-clamp-2">{n.summary}</p>
                   </button>
                 </li>
@@ -198,11 +197,11 @@ export const Canteen: React.FC = () => {
   const day = MENU[i];
   if (!day) return null;
   return (
-    <section id="oshxona" className="py-14 bg-paxsa-100 border-y border-paxsa-300/70">
+    <section id="oshxona" className="py-14 bg-sun-100 border-y border-sun-300/70">
       <Container className="grid lg:grid-cols-[1fr_1.4fr] gap-8 items-center">
         <div>
           <h2 className="text-2xl font-semibold flex items-center gap-3">
-            <UtensilsCrossed size={24} className="text-firuza-600" /> Oshxona taomnomasi
+            <UtensilsCrossed size={24} className="text-accent-600" /> Oshxona taomnomasi
           </h2>
           <p className="mt-2 text-ink/75">Bu hafta o'quvchilarga beriladigan issiq ovqat.</p>
           <div className="mt-5 flex gap-1 overflow-x-auto -mx-4 px-4 lg:mx-0 lg:px-0 pb-1">
@@ -213,7 +212,7 @@ export const Canteen: React.FC = () => {
                 onClick={() => setI(idx)}
                 aria-pressed={i === idx}
                 className={`shrink-0 px-3 py-1.5 rounded-lg text-sm ${
-                  i === idx ? 'bg-lapis-800 text-white' : 'hover:bg-white/70'
+                  i === idx ? 'bg-brand-800 text-white' : 'hover:bg-white/70'
                 }`}
               >
                 {DAYS.includes(m.day) ? m.day.slice(0, 3) : m.day}
@@ -221,10 +220,10 @@ export const Canteen: React.FC = () => {
             ))}
           </div>
         </div>
-        <ul className="bg-white rounded-2xl border border-paxsa-300/70 divide-y divide-line">
+        <ul className="bg-white rounded-2xl border border-sun-300/70 divide-y divide-line">
           {day.items.map((it, k) => (
             <li key={k} className="px-5 py-3.5 flex items-center gap-3">
-              <span className="octagon w-2.5 h-2.5 bg-firuza-500" />
+              <span className="rounded-xl w-2.5 h-2.5 bg-accent-500" />
               {it}
             </li>
           ))}

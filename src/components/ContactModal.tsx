@@ -67,12 +67,12 @@ export const ContactModal: React.FC<{
           <p>Onlayn murojaat hali ulanmagan. Hozircha maktabga qo'ng'iroq qiling yoki Telegram orqali yozing.</p>
           <div className="rounded-xl bg-surface p-4 space-y-2">
             <div className="flex items-center gap-2">
-              <Phone size={16} className="text-lapis-800" />
-              {SITE.phone ? <a className="font-semibold text-lapis-800" href={`tel:${SITE.phone.replace(/[^\d+]/g, '')}`}>{SITE.phone}</a> : <Missing label="telefon kiritilmagan" />}
+              <Phone size={16} className="text-brand-800" />
+              {SITE.phone ? <a className="font-semibold text-brand-800" href={`tel:${SITE.phone.replace(/[^\d+]/g, '')}`}>{SITE.phone}</a> : <Missing label="telefon kiritilmagan" />}
             </div>
             <div className="flex items-center gap-2">
-              <Send size={16} className="text-lapis-800" />
-              {SITE.telegram ? <a className="text-lapis-800" href={`https://t.me/${SITE.telegram}`}>@{SITE.telegram}</a> : <Missing label="Telegram kiritilmagan" />}
+              <Send size={16} className="text-brand-800" />
+              {SITE.telegram ? <a className="text-brand-800" href={`https://t.me/${SITE.telegram}`}>@{SITE.telegram}</a> : <Missing label="Telegram kiritilmagan" />}
             </div>
           </div>
           {SITE.demo && (
@@ -89,7 +89,7 @@ export const ContactModal: React.FC<{
     <Modal open={open} onClose={onClose} title={title}>
       {state.kind === 'done' ? (
         <div className="text-center py-6">
-          <CheckCircle2 size={48} className="mx-auto text-firuza-500" />
+          <CheckCircle2 size={48} className="mx-auto text-accent-500" />
           <h4 className="mt-4 text-lg font-semibold">Murojaat yuborildi</h4>
           <p className="mt-2 text-ink/75">
             Maktab ma'muriyati ko'rsatilgan raqamga qo'ng'iroq qiladi.
@@ -99,7 +99,7 @@ export const ContactModal: React.FC<{
               </>
             )}
           </p>
-          <button type="button" onClick={onClose} className="mt-6 px-5 py-2.5 rounded-lg bg-lapis-800 text-white font-medium">
+          <button type="button" onClick={onClose} className="mt-6 px-5 py-2.5 rounded-lg bg-brand-800 text-white font-medium">
             Yopish
           </button>
         </div>
@@ -112,7 +112,7 @@ export const ContactModal: React.FC<{
                 <label
                   key={t}
                   className={`px-3 py-2 rounded-lg text-sm cursor-pointer border ${
-                    type === t ? 'bg-lapis-800 text-white border-lapis-800' : 'border-line hover:bg-lapis-50'
+                    type === t ? 'bg-brand-800 text-white border-brand-800' : 'border-line hover:bg-brand-50'
                   }`}
                 >
                   <input type="radio" name="type" value={t} checked={type === t} onChange={() => setType(t)} className="sr-only" />
@@ -154,7 +154,7 @@ export const ContactModal: React.FC<{
           <button
             type="submit"
             disabled={!valid || state.kind === 'sending'}
-            className="w-full py-3 rounded-lg bg-lapis-800 hover:bg-lapis-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium"
+            className="w-full py-3 rounded-lg bg-brand-800 hover:bg-brand-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium"
           >
             {state.kind === 'sending' ? 'Yuborilmoqda…' : 'Murojaatni yuborish'}
           </button>
@@ -166,7 +166,7 @@ export const ContactModal: React.FC<{
 };
 
 const inputCls =
-  'w-full px-3.5 py-2.5 rounded-lg border border-line bg-white text-[1rem] focus:outline-none focus:border-firuza-500 focus:ring-2 focus:ring-firuza-100';
+  'w-full px-3.5 py-2.5 rounded-lg border border-line bg-white text-[1rem] focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-100';
 
 const Field: React.FC<{ label: string; children: React.ReactNode }> = ({ label, children }) => (
   <label className="block">
