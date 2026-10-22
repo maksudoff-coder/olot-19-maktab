@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="70 70 260 260">
+  <circle cx="200" cy="200" r="130" fill="#1f3fd1"/>
+  <circle cx="200" cy="104" r="7" fill="#7fe0bd"/><path d="M211 104 L217 104" stroke="#7fe0bd" stroke-width="3" stroke-linecap="round"/><path d="M207.78 111.78 L212.02 116.02" stroke="#7fe0bd" stroke-width="3" stroke-linecap="round"/><path d="M200 115 L200 121" stroke="#7fe0bd" stroke-width="3" stroke-linecap="round"/><path d="M192.22 111.78 L187.98 116.02" stroke="#7fe0bd" stroke-width="3" stroke-linecap="round"/><path d="M189 104 L183 104" stroke="#7fe0bd" stroke-width="3" stroke-linecap="round"/><path d="M192.22 96.22 L187.98 91.98" stroke="#7fe0bd" stroke-width="3" stroke-linecap="round"/><path d="M200 93 L200 87" stroke="#7fe0bd" stroke-width="3" stroke-linecap="round"/><path d="M207.78 96.22 L212.02 91.98" stroke="#7fe0bd" stroke-width="3" stroke-linecap="round"/>
+  <path d="M142 126 H258 V196 C258 244 234 276 200 296 C166 276 142 244 142 196 Z" fill="#ffffff"/>
+  <path d="M200 126 V294 M142 196 H200" stroke="#1f3fd1" stroke-width="3"/>
+  <g transform="translate(171 160) scale(0.88)" fill="#1f3fd1">
+  <path d="M-2 -10 C-8 -15 -18 -16 -27 -14 L-27 12 C-18 10 -8 11 -2 16 Z"/>
+  <path d="M2 -10 C8 -15 18 -16 27 -14 L27 12 C18 10 8 11 2 16 Z"/>
+</g><g transform="translate(170 232) scale(0.8)" fill="#1f3fd1">
+  <path d="M0 -16 L30 -4 L0 8 L-30 -4 Z"/>
+  <path d="M-18 2 L-18 14 C-10 21 10 21 18 14 L18 2 L0 9 Z"/>
+  <path d="M24 -2 L24 14" stroke="#1f3fd1" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="24" cy="16" r="3.2"/>
+</g><g transform="translate(229 206) scale(0.92)">
+  <rect x="-10" y="-66" width="20" height="14" rx="4" fill="#7fe0bd"/>
+  <rect x="-10" y="-54" width="20" height="5" fill="#13246b"/>
+  <rect x="-10" y="-49" width="20" height="84" fill="#1f3fd1"/>
+  <path d="M-10 35 L10 35 L0 60 Z" fill="#f2d7a6"/>
+  <path d="M-3.6 51 L3.6 51 L0 60 Z" fill="#0a1230"/>
+  <path d="M-3.3 -49 V35" stroke="#4f6ef5" stroke-width="2"/>
+</g>
+</svg>

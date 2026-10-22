@@ -119,8 +119,8 @@ const LINKS = [
 export const Footer: React.FC = () => (
   <footer className="relative overflow-hidden bg-brand-950 text-brand-100/80">
     <Container className="py-12 grid md:grid-cols-[1.4fr_1fr_1fr] gap-10">
-      <div className="flex gap-4">
-        <Emblem size={48} />
+      <div className="flex items-start gap-4">
+        <Emblem size={72} className="-mt-1" />
         <div>
           <div className="font-bold text-white">{SITE.shortName}</div>
           <p className="mt-2 text-sm max-w-xs">{SITE.fullName}</p>
